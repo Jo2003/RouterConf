@@ -11,8 +11,8 @@ QRConfDlg::QRConfDlg(QWidget *parent) :
     ui->setupUi(this);
     m_pNw = NULL;
 
-    routerMap["NETGEAR"]   = "Netgear Router";
-    routerMap["Broadband"] = "Netgear Router";
+    routerMap["NETGEAR"]   = "Netgear Router"    ;
+    routerMap["Broadband"] = "Broadband Router"  ;
     routerMap["MVOE"]      = "Pseudo Router MVOE";
 
     QTimer::singleShot(250, this, SLOT(initDlg()));
