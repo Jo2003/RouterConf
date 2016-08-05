@@ -12,7 +12,7 @@ QRConfDlg::QRConfDlg(QWidget *parent) :
     m_pNw = NULL;
 
     routerMap["NETGEAR"]   = "Netgear Router";
-    routerMap["Broadband"] = "Netgear Router";
+    routerMap["Broadband"] = "Broadband Router";
     routerMap["MVOE"]      = "Pseudo Router MVOE";
 
     QTimer::singleShot(250, this, SLOT(initDlg()));
@@ -63,6 +63,12 @@ void QRConfDlg::authenticate(QNetworkReply *reply, QAuthenticator *authenticator
     s += QString("Realm: %1\n").arg(authenticator->realm());
 
     ui->textBrowser->append(s);
+
+    if ((ui->lineUser->text() != "") && (ui->linePass->text() != ""))
+    {
+        authenticator->setUser(ui->lineUser->text());
+        authenticator->setPassword(ui->linePass->text());
+    }
 
     reply->deleteLater();
 
